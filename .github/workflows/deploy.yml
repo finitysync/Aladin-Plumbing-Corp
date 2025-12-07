@@ -41,4 +41,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           # Vite's production output directory is `dist/` by default
           local-dir: dist/
-          server-dir: /Sub-Domains/Aladin-Plumbing-Corp/
+          server-dir: /Sub-domains/Aladin-Plumbing-Corp/
