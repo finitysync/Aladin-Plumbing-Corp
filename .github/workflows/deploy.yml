@@ -30,7 +30,8 @@ jobs:
             echo "Dist directory not found!"
             exit 1
           fi
-          ls -la dist
+          ls -la dist/
+
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
@@ -38,5 +39,6 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: build/
+          # Vite's production output directory is `dist/` by default
+          local-dir: dist/
           server-dir: /Sub-Domains/Aladin-Plumbing-Corp/
