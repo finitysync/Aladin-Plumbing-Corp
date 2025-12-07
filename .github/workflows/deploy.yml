@@ -1,4 +1,4 @@
-name: Deploy via FTP
+name: Deploying The Site
 
 on:
   push:
@@ -23,6 +23,14 @@ jobs:
 
       - name: Build React app
         run: npm run build
+
+      - name: Verify dist directory exists
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "Dist directory not found!"
+            exit 1
+          fi
+          ls -la dist
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
